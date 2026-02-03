@@ -152,6 +152,22 @@ python inat.label.py <observation_number_or_url> [<observation_number_or_url> ..
 - `--quiet`: suppress detailed retry messages (still prints summary).
 - Output choices: `--rtf <file.rtf>` or `--pdf <file.pdf>`.
 
+### Environment variables
+
+You can set environment variables to tune API retry behavior and parallelism:
+
+- `INAT_RATE_LIMIT_RPM`: requests per minute for API rate limiting.
+- `INAT_MAX_WORKERS`: parallel request workers.
+- `INAT_MAX_WAIT_SECONDS`: max total wait per API call when retrying.
+- `INAT_QUIET`: set to `1` to suppress detailed retry chatter.
+
+Example:
+
+```
+INAT_RATE_LIMIT_RPM=60 INAT_MAX_WORKERS=8 INAT_MAX_WAIT_SECONDS=45 INAT_QUIET=1 \
+  python3 inat.label.py 183905751 147249599 --pdf labels.pdf
+```
+
 ## Output
 
 The script generates herbarium labels to the standard output by default, or labels are written to an RTF file if the --rtf command line argument is given.   RTF labels look much more professional when printed and include QR codes - the standard output is mostly for testing.
