@@ -88,6 +88,10 @@ Run the script from the command line, providing one or more iNaturalist observat
 python inat.label.py <observation_number_or_url> [<observation_number_or_url> ...]
 ```
 
+### Input formats
+
+Observation identifiers can be numeric iNaturalist IDs, Mushroom Observer IDs like `MO####`, or full observation URLs. The `--file` option reads IDs separated by spaces, commas, or newlines, and you can combine `--file` with additional IDs on the command line.
+
 To generate an RTF file, use the `--rtf` option:
 
 ```
