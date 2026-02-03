@@ -1,6 +1,6 @@
 # inat.label.py
 
-# iNaturalist Herbarium Label Generator version 3.9.1
+# iNaturalist Herbarium Label Generator version 3.9.2
 # By Alan Rockefeller
 # January 29, 2026
 
@@ -137,6 +137,16 @@ python inat.label.py <observation_number_or_url> [<observation_number_or_url> ..
    ```
    python3 inat.label.py 183905751 147249599 147249600 147249601 147249602 147249603 --pdf labels.pdf --stack-order
    ```
+
+### CLI options (selected)
+
+- `--common-names`: include common names in labels (off by default).
+- `--omit-notes`: omit the Notes field from all labels.
+- `--stack-order`: print labels in stack order for efficient cutting/stacking (2 columns × 3 labels per page).
+- `--workers <n>`: max parallel API requests (default 5, or `INAT_MAX_WORKERS` env var).
+- `--max-wait-seconds <seconds>`: max total wait per API call when retrying (default 30s, or `INAT_MAX_WAIT_SECONDS` env var).
+- `--quiet`: suppress detailed retry messages (still prints summary).
+- Output choices: `--rtf <file.rtf>` or `--pdf <file.pdf>`.
 
 ## Output
 
